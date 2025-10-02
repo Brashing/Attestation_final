@@ -42,6 +42,20 @@
   <component name="DBNavigator.Project.DatabaseSessionManager">
     <connection id="70faed28-c8fc-451d-846a-159370b278f4" />
   </component>
+  <component name="DBNavigator.Project.DatasetFilterManager">
+    <filter-actions connection-id="70faed28-c8fc-451d-846a-159370b278f4" dataset="public.order_status" active-filter-id="" />
+    <filter-actions connection-id="70faed28-c8fc-451d-846a-159370b278f4" dataset="public.customer" active-filter-id="6d5ab884-80d6-4f2a-9e39-36833d3568cb">
+      <filter id="6d5ab884-80d6-4f2a-9e39-36833d3568cb" name="Filter" temporary="false" custom-name="false" type="basic" join-type="AND">
+        <condition column="id" operator="=" value="" active="true" />
+      </filter>
+    </filter-actions>
+    <filter-actions connection-id="70faed28-c8fc-451d-846a-159370b278f4" dataset="public.order" active-filter-id="" />
+    <filter-actions connection-id="70faed28-c8fc-451d-846a-159370b278f4" dataset="public.product" active-filter-id="de793aa6-7fc1-483f-b97c-d3f5b959e053">
+      <filter id="de793aa6-7fc1-483f-b97c-d3f5b959e053" name="Filter" temporary="false" custom-name="false" type="basic" join-type="AND">
+        <condition column="id" operator="=" value="" active="true" />
+      </filter>
+    </filter-actions>
+  </component>
   <component name="DBNavigator.Project.ExecutionManager">
     <retain-sticky-names value="false" />
   </component>
@@ -534,7 +548,7 @@
           <on-autocommit-toggle value="ASK" />
         </uncommitted-changes>
         <multiple-uncommitted-changes>
-          <on-commit value="ASK" />
+          <on-commit value="COMMIT" />
           <on-rollback value="ASK" />
         </multiple-uncommitted-changes>
       </transactions>

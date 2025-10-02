@@ -1,8 +1,5 @@
 -- V1__create_schema.sql
 
--- очистка таблиц для запуска с чистого состояния со сбросом счетчика последовательности
-TRUNCATE TABLE product, customer, order_status, "order" RESTART IDENTITY CASCADE;
-
 -- Создать схему, если не существует
 CREATE SCHEMA IF NOT EXISTS product;
 SET search_path = 'product';
@@ -29,7 +26,7 @@ CREATE TABLE IF NOT EXISTS customer (
     first_name VARCHAR(50) NOT NULL,
     last_name VARCHAR(50) NOT NULL,
     phone VARCHAR(20),
-    email VARCHAR(100) UNIQUE
+    email VARCHAR(100)
 );
 
 -- Таблица заказов

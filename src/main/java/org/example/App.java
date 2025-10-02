@@ -1,7 +1,6 @@
 /*
 "C:\Users\roman\.jdks\jdk-21.0.7\bin\java.exe" -jar "C:\Users\roman\IdeaProjects\Attestation_final\target\Attestation_final-1.0-SNAPSHOT.jar"
  */
-
 package org.example;
 
 import java.io.InputStream;
@@ -114,14 +113,21 @@ public class App {
                                 "ORDER BY o.order_date DESC LIMIT 5")) {
                     ResultSet rs = ps.executeQuery();
                     System.out.println("\n3) Вывод 5 последних заказов:");
+                    System.out.println("----------------------------------------------------------------------------------------------------------------------");
+                    System.out.printf("%-5s | %-26s | %-15s | %-15s | %-20s | %-7s | %-10s%n",
+                            "ID", "Дата заказа", "Имя", "Фамилия", "Товар", "Кол-во", "Статус");
+                    System.out.println("----------------------------------------------------------------------------------------------------------------------");
                     while (rs.next()) {
-                        System.out.println(rs.getInt("id") + " | " +
-                                rs.getString("order_date") + " | " +
-                                rs.getString("first_name") + " " + rs.getString("last_name") + " | " +
-                                rs.getString("description") + " | " +
-                                rs.getInt("quantity") + " | " +
+                        System.out.printf("%-5d | %-20s | %-15s | %-15s | %-20s | %-7d | %-10s%n",
+                                rs.getInt("id"),
+                                rs.getString("order_date"),
+                                rs.getString("first_name"),
+                                rs.getString("last_name"),
+                                rs.getString("description"),
+                                rs.getInt("quantity"),
                                 rs.getString("status_name"));
                     }
+                    System.out.println("----------------------------------------------------------------------------------------------------------------------");
                 }
 
                 // 4. Обновление цены и количества товара
@@ -152,7 +158,7 @@ public class App {
         }
     }
     private static boolean hasData(Connection conn, String tableName) throws SQLException {
-        String query = "SELECT EXISTS (SELECT 1 FROM " + tableName + " LIMIT 1)";
+        String query = "SELECT EXISTS (SELECT 1 FROM \"" + tableName + "\")";
         try (Statement stmt = conn.createStatement(); ResultSet rs = stmt.executeQuery(query)) {
             rs.next();
             return rs.getBoolean(1);

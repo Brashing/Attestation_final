@@ -1,8 +1,3 @@
--- 0. Очистка таблиц для запуска с чистого состояния со сбросом счетчика последовательности.
--- Скрипт полностью очищает указанные таблицы и сбрасывает их автонумерацию ID, чтобы при следующем вставке ID начинался с 1.
--- Идеально подходит при подготовке базы к новым данным или для тестовых сценариев.
-truncate table product, customer, order_status, "order" restart identity cascade;
-
 -- 1. (ЧТЕНИЕ) Список всех заказов за последние 7 дней с информацией о клиенте и товаре
 select o.id, o.order_date, c.first_name || ' ' || c.last_name as customer_name, p.description as product_description
 from "order" o

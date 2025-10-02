@@ -30,8 +30,4 @@ INSERT INTO customer (first_name, last_name, phone, email) VALUES
 ('Dmitry', 'Semenov', '+79761234567', 'dmitry@mail.com'),
 ('Elena', 'Ivanova', '+79861234567', 'elena@mail.com'),
 ('Andrey', 'Volkov', '+79961234567', 'andrey@mail.com'),
-('Natalia', 'Smirnova', '+79061234567', 'natalia@mail.com')
-ON CONFLICT (email) DO UPDATE SET
-first_name = EXCLUDED.first_name,
-last_name = EXCLUDED.last_name,
-phone = EXCLUDED.phone;
+('Natalia', 'Smirnova', '+79061234567', 'natalia@mail.com');
