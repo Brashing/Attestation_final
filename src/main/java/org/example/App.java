@@ -23,10 +23,17 @@ public class App {
             return;
         }
 
-        String url = properties.getProperty("jdbs.url");
-        String user = properties.getProperty("jdbs.user");
-        String password = properties.getProperty("jdbs.password");
+        String url = properties.getProperty("db.url");
+        String user = properties.getProperty("db.user");
+        String password = properties.getProperty("db.password");
 
+        // Регистрация драйвера
+        try {
+            Class.forName("org.postgresql.Driver");
+            System.out.println("Драйвер PostgreSQL найден и зарегистрирован");
+        } catch (ClassNotFoundException e) {
+            System.out.println("Драйвер PostgreSQL НЕ найден");
+        }
         // Подключение к БД
         try (Connection conn = DriverManager.getConnection(url, user, password)) {
             System.out.println("Подключение успешно");

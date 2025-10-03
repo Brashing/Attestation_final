@@ -4,15 +4,9 @@
 CREATE SCHEMA IF NOT EXISTS product;
 SET search_path = 'product';
 
--- Таблица статусов заказов
-CREATE TABLE IF NOT EXISTS order_status
-(
-    id SERIAL PRIMARY KEY,
-    status_name VARCHAR(50) NOT NULL
-);
-
 -- Таблица товаров
-CREATE TABLE IF NOT EXISTS product (
+CREATE TABLE IF NOT EXISTS product
+(
     id SERIAL PRIMARY KEY,
     description TEXT NOT NULL,
     price NUMERIC(10, 2) CHECK (price >= 0),
@@ -29,6 +23,13 @@ CREATE TABLE IF NOT EXISTS customer (
     email VARCHAR(100)
 );
 
+-- Таблица статусов заказов
+CREATE TABLE IF NOT EXISTS order_status
+(
+    id SERIAL PRIMARY KEY,
+    status_name VARCHAR(50) NOT NULL
+);
+
 -- Таблица заказов
 CREATE TABLE IF NOT EXISTS "order" (
     id SERIAL PRIMARY KEY,
@@ -43,3 +44,6 @@ CREATE TABLE IF NOT EXISTS "order" (
 CREATE INDEX IF NOT EXISTS idx_order_order_date ON "order" (order_date);
 CREATE INDEX IF NOT EXISTS idx_order_customer ON "order" (customer_id);
 CREATE INDEX IF NOT EXISTS idx_order_product ON "order" (product_id);
+
+---- очистка таблиц для запуска с чистого состояния со сбросом счетчика последовательности
+--TRUNCATE TABLE product, customer, order_status, "order" RESTART IDENTITY CASCADE;

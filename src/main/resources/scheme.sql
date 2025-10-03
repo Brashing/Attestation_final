@@ -2,6 +2,9 @@
 TRUNCATE TABLE product, customer, order_status, "order" RESTART IDENTITY CASCADE;
 
 SELECT * FROM product;
+SELECT * FROM order_status;
+SELECT * FROM customer;
+SELECT * FROM "order";
 
 -- Таблица статусов заказов
 CREATE TABLE IF NOT EXISTS order_status (

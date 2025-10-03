@@ -50,6 +50,11 @@
       </filter>
     </filter-actions>
     <filter-actions connection-id="70faed28-c8fc-451d-846a-159370b278f4" dataset="public.order" active-filter-id="" />
+    <filter-actions connection-id="70faed28-c8fc-451d-846a-159370b278f4" dataset="product.customer" active-filter-id="44d0a4a2-915b-49d1-b50d-6efb1dcf5d14">
+      <filter id="44d0a4a2-915b-49d1-b50d-6efb1dcf5d14" name="Filter" temporary="false" custom-name="false" type="basic" join-type="AND">
+        <condition column="id" operator="=" value="" active="true" />
+      </filter>
+    </filter-actions>
     <filter-actions connection-id="70faed28-c8fc-451d-846a-159370b278f4" dataset="public.product" active-filter-id="de793aa6-7fc1-483f-b97c-d3f5b959e053">
       <filter id="de793aa6-7fc1-483f-b97c-d3f5b959e053" name="Filter" temporary="false" custom-name="false" type="basic" join-type="AND">
         <condition column="id" operator="=" value="" active="true" />
@@ -60,10 +65,11 @@
     <retain-sticky-names value="false" />
   </component>
   <component name="DBNavigator.Project.FileConnectionMappingManager">
-    <mapping file-url="file://$PROJECT_DIR$/src/main/resources/test-queries.sql" connection-id="70faed28-c8fc-451d-846a-159370b278f4" session-id="MAIN" current-schema="public" />
-    <mapping file-url="file://$PROJECT_DIR$/src/main/resources/migration/V2__insert_initial_data.sql" connection-id="70faed28-c8fc-451d-846a-159370b278f4" session-id="MAIN" current-schema="public" />
-    <mapping file-url="file://$PROJECT_DIR$/src/main/resources/migration/V3__create_sample_orders.sql" connection-id="70faed28-c8fc-451d-846a-159370b278f4" session-id="MAIN" current-schema="public" />
-    <mapping file-url="file://$PROJECT_DIR$/src/main/resources/migration/V1__create_schema.sql" connection-id="70faed28-c8fc-451d-846a-159370b278f4" session-id="MAIN" current-schema="public" />
+    <mapping file-url="file://$PROJECT_DIR$/src/main/resources/test-queries.sql" connection-id="70faed28-c8fc-451d-846a-159370b278f4" session-id="MAIN" current-schema="product" />
+    <mapping file-url="file://$PROJECT_DIR$/src/main/resources/scheme.sql" connection-id="70faed28-c8fc-451d-846a-159370b278f4" session-id="MAIN" current-schema="product" />
+    <mapping file-url="file://$PROJECT_DIR$/src/main/resources/migration/V2__insert_initial_data.sql" connection-id="70faed28-c8fc-451d-846a-159370b278f4" session-id="MAIN" current-schema="product" />
+    <mapping file-url="file://$PROJECT_DIR$/src/main/resources/migration/V3__create_sample_orders.sql" connection-id="70faed28-c8fc-451d-846a-159370b278f4" session-id="MAIN" current-schema="product" />
+    <mapping file-url="file://$PROJECT_DIR$/src/main/resources/migration/V1__create_schema.sql" connection-id="70faed28-c8fc-451d-846a-159370b278f4" session-id="MAIN" current-schema="product" />
   </component>
   <component name="DBNavigator.Project.MethodExecutionManager">
     <method-browser />
@@ -92,7 +98,7 @@
           <config-type value="BASIC" />
           <database-version value="18.0" />
           <driver-source value="EXTERNAL" />
-          <driver-library value="C:\Users\roman\AppData\Roaming\JetBrains\IdeaIC2025.1\plugins\postgresql-42.7.7.jar" />
+          <driver-library value="C:\Users\roman\.m2\repository\org\postgresql\postgresql\42.7.7\postgresql-42.7.7.jar" />
           <driver value="org.postgresql.Driver" />
           <url-type value="DATABASE" />
           <host value="localhost" />
@@ -548,7 +554,7 @@
           <on-autocommit-toggle value="ASK" />
         </uncommitted-changes>
         <multiple-uncommitted-changes>
-          <on-commit value="COMMIT" />
+          <on-commit value="ASK" />
           <on-rollback value="ASK" />
         </multiple-uncommitted-changes>
       </transactions>
